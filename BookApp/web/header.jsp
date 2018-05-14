@@ -4,7 +4,8 @@
     Author     : Patty
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="book.wsd.*" import="java.util.*" contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,9 +22,11 @@
 
         <!-- Custom CSS -->
         <link rel="stylesheet" href="css/style.css">
-        
+
     </head>
     <body>
+        <!--Retrieve data from session obj-->
+        <%       User user = (User) session.getAttribute("user"); %>
         <div class="container">
             <nav class="navbar navbar-light" style="background-color:#e3f2fd;">
                 <a class="navbar-brand" href="index.jsp">BookApp</a>
@@ -31,13 +34,23 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">My List</a>
                     </li>
-
+                    <!--need to show before login-->
+                    <%
+                        if (user != null) {
+                    %>
+                    <li class="nav-item">You are logged in as <%=user.getName()%></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout.jsp">Logout</a>
+                    </li>
+                    <%} else {%>
+                    <!--need to show this but hide the login/register-->
                     <li class="nav-item">
                         <a class="nav-link active" href="register.jsp">Register</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="login.jsp">Login</a>
                     </li>
+                    <%}%>
                 </ul>
             </nav>
         </div>
