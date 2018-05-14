@@ -21,6 +21,7 @@
 
         <!-- Custom CSS -->
         <link rel="stylesheet" href="css/style.css">
+        
     </head>
     <body>
         <div class="container">
@@ -28,8 +29,9 @@
                 <a class="navbar-brand" href="index.jsp">BookApp</a>
                 <ul class="nav justify-content-end">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Cart</a>
+                        <a class="nav-link" href="#">My List</a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link active" href="register.jsp">Register</a>
                     </li>
