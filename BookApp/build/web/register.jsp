@@ -1,4 +1,4 @@
-<%@ include file = "header.jsp" %>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -20,15 +20,15 @@
         <%
             if (agreeTOS != null) {
         %>
-        <p>Welcome,  <%=name%>!</p>
-        
-        <% 
+        <meta http-equiv="refresh" content="0; url=main.jsp" />
+
+        <%
             // set session to store
             book.wsd.User user = new book.wsd.User(name, email, password);
             session.setAttribute("user", user);
         %>
-        <p>Click <a href="main.jsp">here</a> to go to main page.</p>
-        
+       
+
         <%} else {%>
         <p>Sorry, you must agree to the Terms of Services.</p>
         <p>Click <a href="register.jsp">here</a> to go back.</p>
