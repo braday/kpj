@@ -10,6 +10,7 @@
     </head>
     <%
         String submitted = request.getParameter("submitted");
+        String redirectURL = "index.jsp";
 
         if (submitted != null && submitted.equals("yes")) {
 
@@ -21,7 +22,9 @@
             //Boolean submitted = "yes".equals(request.getParameter("submitted"));
     %>
     <body>
-        <%  if (agreeTOS != null) {%>
+        <%  if (agreeTOS != null) {
+            response.sendRedirect(redirectURL);
+        %>
         <h1>Welcome!</h1>
         <p>Welcome,  <%=name%>!</p>
         <p>Your Email is <%=email%> </p>

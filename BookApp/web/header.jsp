@@ -30,7 +30,7 @@
                         if (user != null) {
                     %>
                     <li class="nav-item">You are logged in as <%=user.getName()%></li>
-                    <li><a href="account.jsp">My Account</a></li>
+                    <li><a href="edit_user.jsp">My Account</a></li>
                     <li class="nav-item">
                         <a class="nav-link" href="logout.jsp">Logout</a>
                     </li>

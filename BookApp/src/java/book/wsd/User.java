@@ -8,16 +8,16 @@ package book.wsd;
 import java.io.Serializable;
 import javax.xml.bind.annotation.*;
 
-//@XmlAccessorType(XmlAccessType.FIELD) // Use the defaults for fields
+@XmlAccessorType(XmlAccessType.FIELD) // Use the defaults for fields
 public class User implements Serializable {
 // The defaults are OK
 // Each of these fields will be automatically mapped to an XML Element of the same name.
 
-//    @XmlElement(name = "email") // eg. this field will be mapped to an XML element called "email"
+    @XmlElement(name = "email") // eg. this field will be mapped to an XML element called "email"
     private String email;
-//    @XmlElement(name = "name")
+    @XmlElement(name = "name")
     private String name;
-//    @XmlElement(name = "password")
+    @XmlElement(name = "password")
     private String password;
 
     public User() {

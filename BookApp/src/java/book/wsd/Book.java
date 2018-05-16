@@ -6,24 +6,50 @@
 package book.wsd;
 
 import java.io.Serializable;
+import javax.xml.bind.annotation.*;
 
 /**
  *
  * @author Patty
  */
+@XmlAccessorType(XmlAccessType.FIELD) // Use the defaults for fields
 public class Book implements Serializable {
 
+    @XmlAttribute(name = "id")
+    private int id;
+    @XmlElement(name = "title")
     private String title;
+    @XmlElement(name = "category")
+    private String category;
+    @XmlElement(name = "author")
     private String author;
+    @XmlElement(name = "price")
     private double price;
+    @XmlElement(name = "copy")
     private int copy;
 
-    public Book(String title, String author, double price, int copy) {
+    public Book(int id, String title, String category, String author, double price, int copy) {
 //        super();
+        this.id = id;
         this.title = title;
+        this.category = category;
         this.author = author;
         this.price = price;
         this.copy = copy;
+    }
+
+    /**
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
     }
 
     /**
@@ -38,6 +64,20 @@ public class Book implements Serializable {
      */
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    /**
+     * @return the category
+     */
+    public String getCategory() {
+        return category;
+    }
+
+    /**
+     * @param category the category to set
+     */
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     /**
