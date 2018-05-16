@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bookshop>
+    <name>Bookstore</name>
+    <books>
+        <book id="0">
+            <title>XML Developer's Guide</title>
+            <category>Computer</category>
+            <author>Matthew Gambardella</author>
+            <price>40.0</price>
+            <copy>3</copy>
+        </book>
+        <book id="1">
+            <title>Exercise Physiology</title>
+            <category>Health</category>
+            <author>Mcardle</author>
+            <price>35.0</price>
+            <copy>2</copy>
+        </book>
+        <book id="2">
+            <title>The New Law of Torts</title>
+            <category>Legal</category>
+            <author>Danuta Mendelson</author>
+            <price>78.0</price>
+            <copy>1</copy>
+        </book>
+    </books>
+</bookshop>
