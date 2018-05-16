@@ -12,12 +12,11 @@
         <title>Logout Page</title>
     </head>
     <body>
+    <body>
         <%
             session.invalidate();
         %>
-        <fieldset>
-            <legend>logout.jsp</legend>
-              <p>You have been logged out. Click <a href="index.jsp">here</a> to return to the main page.</p>
-        </fieldset>
+        <p>You have been logged out. Click <a href="index.jsp">here</a> to return to the Home page.</p>
+    </body>
     </body>
 </html>
