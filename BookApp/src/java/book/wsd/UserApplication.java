@@ -54,6 +54,17 @@ public class UserApplication {
         fin.close();
     }
 
+    public void upadateXML(Users users, String filePath) throws Exception {
+        this.users = users;
+        this.filePath = filePath;
+        JAXBContext jc = JAXBContext.newInstance(Users.class);
+        Marshaller m = jc.createMarshaller();
+        m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+        FileOutputStream fout = new FileOutputStream(filePath);
+        m.marshal(users, fout);
+        fout.close();
+    }
+
     /**
      * @return the users
      */

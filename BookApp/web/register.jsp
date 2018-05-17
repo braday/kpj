@@ -1,4 +1,4 @@
-<%@page import="book.wsd.User"%>
+<%@page import="book.wsd.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -21,23 +21,38 @@
             String agreeTOS = request.getParameter("tos");
             //Boolean submitted = "yes".equals(request.getParameter("submitted"));
     %>
+    <%
+        String filePath = application.getRealPath("WEB-INF/users.xml");%>
+    <jsp:useBean id="bookApp" class="book.wsd.UserApplication" scope="application">
+        <jsp:setProperty name="bookApp" property="filePath" value="<%=filePath%>"/>
+    </jsp:useBean>
+    <%Users users = bookApp.getUsers();
+    %>
     <body>
-        <%  if (agreeTOS != null) {
-            response.sendRedirect(redirectURL);
-        %>
-        <h1>Welcome!</h1>
-        <p>Welcome,  <%=name%>!</p>
-        <p>Your Email is <%=email%> </p>
-        <p>Your Password is <%=password%> </p>
-        <%
-            User user = new User(email, name, password);
-            session.setAttribute("user", user);
-        %>
-        <p>Click <a href="index.jsp">here</a> to go back.</p>
-        <%} else {%>
-        <p>Sorry, you must agree to the Terms of Services.</p>
+        <% if (agreeTOS == null) { %>
+        <p>Sorry, you must agree to the Terms of Services or enter correct email.</p>
         <p>Click <a href="register.jsp">here</a> to go back.</p>
+        <%} else {%>        
+            <%
+                if (!users.hasSameEmail(email)) {
+                response.sendRedirect(redirectURL);
+            %>
+            <h1>Welcome!</h1>
+            <p>Welcome,  <%=name%>!</p>
+            <p>Your Email is <%=email%> </p>
+            <p>Your Password is <%=password%> </p>
+            <%
+                User user = new User(email, name, password);
+                session.setAttribute("user", user);
+                users.addUser(user);
+                bookApp.upadateXML(users, filePath);
+            %>
+            <p>Click <a href="index.jsp">here</a> to go back.</p>
+            <%} else {%>
+            <p>email existed! Click <a href="register.jsp">here</a> to sign up again.</p>
+            <%}%>
         <%}%>
+
         <%} else {%>
         <h1>Register</h1>
         <form action="register.jsp" method="POST">
