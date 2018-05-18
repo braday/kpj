@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<users>
+    <user>
+        <email>ryan@ryanheise.com</email>
+        <name>Ryan Heise</name>
+        <password>blahblah</password>
+    </user>
+    <user>
+        <email>joe@bloggs.com</email>
+        <name>Joe Bloggs</name>
+        <password>foobar</password>
+    </user>
+    <user>
+        <email>jess@123.com</email>
+        <name>Jess Doe</name>
+        <password>jess</password>
+    </user>
+    <user>
+        <email>bob</email>
+        <name>bob</name>
+        <password>bob</password>
+    </user>
+</users>
