@@ -7,11 +7,18 @@ and open the template in the editor.
 
 <xs:schema version="1.0"
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.w3schools.com"
+           xmlns="https://www.w3schools.com"  
            elementFormDefault="qualified">
+    <xs:simpleType name="year">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{1,4}"/>
+        </xs:restriction>
+    </xs:simpleType>    
     <xs:element name="bookshop">
         <xs:complexType>
-            <xs:sequence>
-                <xs:element type="xs:string" name="name"/>
+            <xs:sequence>                
+                <xs:element type="xs:string" name="name"/> 
                 <xs:element name="books">
                     <xs:complexType>
                         <xs:sequence>
@@ -21,21 +28,21 @@ and open the template in the editor.
                                         <xs:element type="xs:string" name="title"/>
                                         <xs:element type="xs:string" name="author"/>
                                         <xs:element type="xs:string" name="category"/>
-                                        <xs:element type="xs:int" name="qty"/>
-                                        <xs:element type="xs:double" name="price"/>
+                                        <xs:element type="xs:integer" name="qty"/>
+                                        <xs:element type="xs:float" name="price"/>
                                         <xs:element name="publication">
                                             <xs:complexType>
                                                 <xs:sequence>
                                                     <xs:element type="xs:string" name="isbn"/>
                                                     <xs:element type="xs:string" name="edition"/>
-                                                    <xs:element type="xs:int" name="pubYear"/>
+                                                    <xs:element type="year" name="pubYear"/>
                                                     <xs:element type="xs:string" name="publisher"/>
                                                     <xs:element type="xs:string" name="condition"/>
                                                 </xs:sequence>
                                             </xs:complexType>
                                         </xs:element>
                                     </xs:sequence>
-                                    <xs:attribute type="xs:int" name="id" use="optional"/>
+                                    <xs:attribute type="xs:integer" name="id" use="optional"/>
                                 </xs:complexType>
                             </xs:element>
                         </xs:sequence>

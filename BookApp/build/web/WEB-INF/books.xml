@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bookshop>
+<bookshop
+        xmlns="https://www.w3schools.com"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://www.w3schools.com books.xsd">
     <name>Bookstore</name>
     <books>
         <book id="0">
@@ -11,7 +14,7 @@
             <publication>
                 <isbn>978-3-16-148410-0</isbn>
                 <edition>3rd edition</edition>
-                <year>2014</year>
+                <pubYear>2014</pubYear>
                 <publisher>Wiley</publisher>
                 <condition>Good</condition>
             </publication>
