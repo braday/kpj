@@ -17,8 +17,7 @@
         </jsp:useBean>
         <% 
             Books bookList = bookApp.getBooks();
-            ArrayList<Book> list = bookList.viewBooks();
-            
+            ArrayList<Book> list = bookList.viewBooks();           
         %>
         <div class="container">
 

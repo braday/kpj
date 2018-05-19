@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+    <xs:element name="bookshop">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element type="xs:string" name="name"/>
+                <xs:element name="books">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="book" maxOccurs="unbounded" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:string" name="title"/>
+                                        <xs:element type="xs:string" name="author"/>
+                                        <xs:element type="xs:string" name="category"/>
+                                        <xs:element type="xs:int" name="qty"/>
+                                        <xs:element type="xs:double" name="price"/>
+                                        <xs:element name="publication">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element type="xs:string" name="isbn"/>
+                                                    <xs:element type="xs:string" name="edition"/>
+                                                    <xs:element type="xs:int" name="pubYear"/>
+                                                    <xs:element type="xs:string" name="publisher"/>
+                                                    <xs:element type="xs:string" name="condition"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute type="xs:int" name="id" use="optional"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
