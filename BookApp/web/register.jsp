@@ -21,35 +21,34 @@
             String agreeTOS = request.getParameter("tos");
             //Boolean submitted = "yes".equals(request.getParameter("submitted"));
     %>
-    <%
-        String filePath = application.getRealPath("WEB-INF/users.xml");%>
-    <jsp:useBean id="bookApp" class="book.wsd.UserApplication" scope="application">
-        <jsp:setProperty name="bookApp" property="filePath" value="<%=filePath%>"/>
+    <% String filePath = application.getRealPath("WEB-INF/users.xml");%>
+    <jsp:useBean id="userApp" class="book.wsd.UserApplication" scope="application">
+        <jsp:setProperty name="userApp" property="filePath" value="<%=filePath%>"/>
     </jsp:useBean>
-    <%Users users = bookApp.getUsers(); %>
+    <%Users users = userApp.getUsers(); %>
     <body>
         <% if (agreeTOS == null) { %>
         <p>Sorry, you must agree to the Terms of Services or enter correct email.</p>
         <p>Click <a href="register.jsp">here</a> to go back.</p>
         <%} else {%>        
-            <%
-                if (!users.hasSameEmail(email)) {
+        <%
+            if (!users.hasSameEmail(email)) {
                 response.sendRedirect(redirectURL);
-            %>
-            <h1>Welcome!</h1>
-            <p>Welcome,  <%=name%>!</p>
-            <p>Your Email is <%=email%> </p>
-            <p>Your Password is <%=password%> </p>
-            <%
-                User user = new User(email, name, password);
-                session.setAttribute("user", user);
-                users.addUser(user);
-                bookApp.upadateXML(users, filePath);
-            %>
-            <p>Click <a href="index.jsp">here</a> to go back.</p>
-            <%} else {%>
-            <p>email existed! Click <a href="register.jsp">here</a> to sign up again.</p>
-            <%}%>
+        %>
+        <h1>Welcome!</h1>
+        <p>Welcome,  <%=name%>!</p>
+        <p>Your Email is <%=email%> </p>
+        <p>Your Password is <%=password%> </p>
+        <%
+            User user = new User(email, name, password);
+            session.setAttribute("user", user);
+            users.addUser(user);
+            userApp.upadateXML(users, filePath);
+        %>
+        <p>Click <a href="index.jsp">here</a> to go back.</p>
+        <%} else {%>
+        <p>email existed! Click <a href="register.jsp">here</a> to sign up again.</p>
+        <%}%>
         <%}%>
 
         <%} else {%>

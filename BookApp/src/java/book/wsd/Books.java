@@ -13,20 +13,14 @@ import javax.xml.bind.annotation.*;
 @XmlRootElement(name = "bookshop")
 public class Books implements Serializable {
 
-    /* lab 4 ex */
     @XmlElement(name = "name")
     private String name;
     @XmlElementWrapper(name = "books")
     @XmlElement(name = "book")
     private ArrayList<Book> books = new ArrayList<Book>();
 
-    /*
-        include user list??
-     */
-    
     public Books() {
     }
-    
 
     /**
      * @return the name
@@ -64,5 +58,17 @@ public class Books implements Serializable {
         books.remove(book);
     }
 
-//    show book??
+
+    //find all matches
+    public ArrayList<Book> viewBooks() {
+        ArrayList<Book> list = new ArrayList<Book>();
+        int count = 0;
+        for (Book book : books) {
+            if (book.equals(book)) {
+                list.add(book);
+                count++;
+            }
+        }
+        return list;
+    }
 }

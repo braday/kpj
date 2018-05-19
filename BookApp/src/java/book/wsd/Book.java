@@ -19,23 +19,40 @@ public class Book implements Serializable {
     private int id;
     @XmlElement(name = "title")
     private String title;
-    @XmlElement(name = "category")
-    private String category;
     @XmlElement(name = "author")
     private String author;
+    @XmlElement(name = "category")
+    private String category;
+    @XmlElement(name = "qty")
+    private int qty;
+    @XmlElement(name = "description")
+    private String description;
+    @XmlElement(name = "isbn")
+    private String isbn;
+    @XmlElement(name = "edition")
+    private String edition;
+    @XmlElement(name = "pubYear")
+    private int pubYear;
+    @XmlElement(name = "publisher")
+    private String publisher;
+    @XmlElement(name = "condition")
+    private String condition;
     @XmlElement(name = "price")
     private double price;
-    @XmlElement(name = "copy")
-    private int copy;
 
-    public Book(int id, String title, String category, String author, double price, int copy) {
-//        super();
+    public Book(int id, String title, String author, String category, int qty, String description, String isbn, String edition, int pubYear, String publisher, String condition, double price) {
         this.id = id;
         this.title = title;
-        this.category = category;
         this.author = author;
+        this.category = category;
+        this.qty = qty;
+        this.description = description;
+        this.isbn = isbn;
+        this.edition = edition;
+        this.pubYear = pubYear;
+        this.publisher = publisher;
+        this.condition = condition;
         this.price = price;
-        this.copy = copy;
     }
 
     /**
@@ -67,6 +84,20 @@ public class Book implements Serializable {
     }
 
     /**
+     * @return the author
+     */
+    public String getAuthor() {
+        return author;
+    }
+
+    /**
+     * @param author the author to set
+     */
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    /**
      * @return the category
      */
     public String getCategory() {
@@ -81,17 +112,101 @@ public class Book implements Serializable {
     }
 
     /**
-     * @return the author
+     * @return the qty
      */
-    public String getAuthor() {
-        return author;
+    public int getQty() {
+        return qty;
     }
 
     /**
-     * @param author the author to set
+     * @param qty the qty to set
      */
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setQty(int qty) {
+        this.qty = qty;
+    }
+
+    /**
+     * @return the description
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * @param description the description to set
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    /**
+     * @return the isbn
+     */
+    public String getIsbn() {
+        return isbn;
+    }
+
+    /**
+     * @param isbn the isbn to set
+     */
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    /**
+     * @return the edition
+     */
+    public String getEdition() {
+        return edition;
+    }
+
+    /**
+     * @param edition the edition to set
+     */
+    public void setEdition(String edition) {
+        this.edition = edition;
+    }
+
+    /**
+     * @return the pubYear
+     */
+    public int getPubYear() {
+        return pubYear;
+    }
+
+    /**
+     * @param pubYear the pubYear to set
+     */
+    public void setPubYear(int pubYear) {
+        this.pubYear = pubYear;
+    }
+
+    /**
+     * @return the publisher
+     */
+    public String getPublisher() {
+        return publisher;
+    }
+
+    /**
+     * @param publisher the publisher to set
+     */
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    /**
+     * @return the condition
+     */
+    public String getCondition() {
+        return condition;
+    }
+
+    /**
+     * @param condition the condition to set
+     */
+    public void setCondition(String condition) {
+        this.condition = condition;
     }
 
     /**
@@ -107,19 +222,6 @@ public class Book implements Serializable {
     public void setPrice(double price) {
         this.price = price;
     }
-
-    /**
-     * @return the copy
-     */
-    public int getCopy() {
-        return copy;
-    }
-
-    /**
-     * @param copy the copy to set
-     */
-    public void setCopy(int copy) {
-        this.copy = copy;
-    }
+    
 
 }

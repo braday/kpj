@@ -4,28 +4,46 @@
     <books>
         <book id="0">
             <title>XML Developer's Guide</title>
-            <category>Computer</category>
             <author>Matthew Gambardella</author>
+            <category>Computer</category>
+            <qty>3</qty>
             <price>40.0</price>
-            <copy>3</copy>
+            <publication>
+                <isbn>978-3-16-148410-0</isbn>
+                <edition>3rd edition</edition>
+                <year>2014</year>
+                <publisher>Wiley</publisher>
+                <condition>Good</condition>
+            </publication>
         </book>
         <book id="1">
             <title>Exercise Physiology</title>
-            <category>Health</category>
             <author>Mcardle</author>
+            <category>Health</category>
+            <qty>2</qty>
             <price>35.0</price>
-<!--            <copy>2</copy>
             <publication>
-                <isbn>dfghdlfgj</isbn>
-                <datePublished>234234234</datePublished>
-            </publication>-->
+                <isbn>988-1-70-146450-3</isbn>
+                <edition>5rd edition</edition>
+                <pubYear>2015</pubYear>
+                <publisher>Wiley</publisher>
+                <condition>Fiar</condition>               
+            </publication>
         </book>
         <book id="2">
             <title>The New Law of Torts</title>
-            <category>Legal</category>
             <author>Danuta Mendelson</author>
+            <category>Legal</category>
+            <qty>1</qty>
             <price>78.0</price>
-            <copy>1</copy>
+            <publication>
+                <isbn>988-1-70-146450-3</isbn>
+                <edition>5rd edition</edition>
+                <pubYear>2015</pubYear>
+                <publisher>Wiley</publisher>
+                <condition>Fiar</condition>               
+            </publication>
         </book>
     </books>
 </bookshop>
+

@@ -65,6 +65,17 @@ public class UserApplication {
         fout.close();
     }
 
+    // For the advanced step, you might consider adding a saveStudents() method here
+    // to be used from the welcome.jsp page
+//    public void saveUsers() throws JAXBException, IOException {
+//        JAXBContext jc = JAXBContext.newInstance(Users.class);
+//        Marshaller m = jc.createMarshaller();
+//        m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+//        FileOutputStream fout = new FileOutputStream(filePath);
+//        m.marshal(users, fout);
+//        fout.close();
+//    }
+
     /**
      * @return the users
      */

@@ -38,7 +38,27 @@ public class BookApplication {
         books = (Books) u.unmarshal(fin); // This loads the "books" object
         fin.close();
     }
+    public void upadateXML(Books books, String filePath) throws Exception {
+        this.books = books;
+        this.filePath = filePath;
+        JAXBContext jc = JAXBContext.newInstance(Books.class);
+        Marshaller m = jc.createMarshaller();
+        m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+        FileOutputStream fout = new FileOutputStream(filePath);
+        m.marshal(books, fout);
+        fout.close();
+    }
 
+    // For the advanced step, you might consider adding a saveStudents() method here
+    // to be used from the welcome.jsp page
+//    public void saveBooks() throws JAXBException, IOException {
+//        JAXBContext jc = JAXBContext.newInstance(Books.class);
+//        Marshaller m = jc.createMarshaller();
+//        m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+//        FileOutputStream fout = new FileOutputStream(filePath);
+//        m.marshal(books, fout);
+//        fout.close();
+//    }
     /**
      * @return the books
      */

@@ -13,8 +13,8 @@
     </head>
     <body>
         <% String filePath = application.getRealPath("WEB-INF/users.xml");%>
-        <jsp:useBean id="bookApp" class="book.wsd.UserApplication" scope="application">
-            <jsp:setProperty name="bookApp" property="filePath" value="<%=filePath%>"/>
+        <jsp:useBean id="userApp" class="book.wsd.UserApplication" scope="application">
+            <jsp:setProperty name="userApp" property="filePath" value="<%=filePath%>"/>
         </jsp:useBean>
         <%
             // preset from users.xml
@@ -22,7 +22,7 @@
             String email = request.getParameter("email");
             String redirectURL = "index.jsp";
 
-            Users users = bookApp.getUsers();
+            Users users = userApp.getUsers();
             User user = users.login(email, password);
 
             if (user != null) { // the login was successful
