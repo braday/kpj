@@ -1,16 +1,12 @@
 <?xml version="1.0"?>
 
-<xs:schema version="1.0"
-           xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           targetNamespace="https://www.w3schools.com"
-           xmlns="https://www.w3schools.com"           
-           elementFormDefault="qualified">
-    <xs:simpleType name="fullName">
+<xs:schema version="1.0" elementFormDefault="qualified">
+    <xs:simpleType name="nameType">
         <xs:restriction base="xs:string">            
             <xs:pattern value="([A-Z][a-z]*)( [A-Z][a-z]*)*"/>
         </xs:restriction>        
     </xs:simpleType>
-    <xs:simpleType name="email">
+    <xs:simpleType name="emailType">
         <xs:restriction base="xs:string">            
             <xs:pattern value="[a-zA-Z\._]+@[a-z\-]+(\.[a-z\-]+)+"/>
         </xs:restriction>
@@ -22,8 +18,8 @@
                 <xs:element name="user" maxOccurs="unbounded" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element type="email" name="email"/>
-                            <xs:element type="fullName" name="name"/>
+                            <xs:element type="emailType" name="email"/>
+                            <xs:element type="nameType" name="name"/>
                             <xs:element type="xs:string" name="password"/>
                         </xs:sequence>
                     </xs:complexType>
@@ -32,4 +28,3 @@
         </xs:complexType>
     </xs:element>
 </xs:schema>
-

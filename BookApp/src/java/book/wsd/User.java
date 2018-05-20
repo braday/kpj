@@ -6,6 +6,7 @@
 package book.wsd;
 
 import java.io.Serializable;
+import java.util.*;
 import javax.xml.bind.annotation.*;
 
 @XmlAccessorType(XmlAccessType.FIELD) // Use the defaults for fields
@@ -21,6 +22,7 @@ public class User implements Serializable {
     private String password;
 
     public User() {
+
     }
 
     public User(String email, String name, String password) {
@@ -58,4 +60,5 @@ public class User implements Serializable {
     public String toString() {
         return "User{" + "email=" + email + ", name=" + name + ", password=" + password + '}';
     }
+
 }

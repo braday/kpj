@@ -4,7 +4,7 @@
     Author     : Patty
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="book.wsd.*" import="java.util.*" contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>

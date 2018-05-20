@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-    <users
-        xmlns="https://www.w3schools.com"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="https://www.w3schools.com users.xsd">
-        <user>
-            <email>ryan@ryanheise.com</email>
-            <name>Ryan Heise</name>
-            <password>blahblah</password>
-        </user>
-        <user>
-            <email>joe@bloggs.com</email>
-            <name>Joe Bloggs</name>
-            <password>foobar</password>
-        </user>
-        <user>
-            <email>jess@jess.com</email>
-            <name>Jess Doe</name>
-            <password>jess</password>
-        </user>
-    </users>
+<?xml-stylesheet type="text/xsl" href="users.xsl"?>
+<users>
+    <title>User List</title>
+    
+    <user>
+        <email>ryan@ryanheise.com</email>
+        <name>Ryan Heise</name>
+        <password>blahblah</password>
+    </user>
+    <user>
+        <email>joe@bloggs.com</email>
+        <name>Joe Bloggs</name>
+        <password>foobar</password>
+    </user>
+    <user>
+        <email>jess@jess.com</email>
+        <name>Jess Doe</name>
+        <password>jess</password>
+    </user>
+</users>
+

@@ -6,6 +6,7 @@
 package book.wsd;
 
 import java.io.*;
+import java.util.ArrayList;
 import javax.xml.bind.*;
 
 /**
@@ -51,6 +52,7 @@ public class UserApplication {
         // Now unmarshal the object from the file
         FileInputStream fin = new FileInputStream(filePath);
         users = (Users) u.unmarshal(fin); // This loads the "users" object
+             
         fin.close();
     }
 

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bookshop
-        xmlns="https://www.w3schools.com"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="https://www.w3schools.com books.xsd">
+<?xml-stylesheet type="text/xsl" href="books.xsl"?>
+<bookshop>
     <name>Bookstore</name>
     <books>
-        <book id="0">
+        <book id="1">
             <title>XML Developer's Guide</title>
             <author>Matthew Gambardella</author>
             <category>Computer</category>
@@ -19,7 +17,7 @@
                 <condition>Good</condition>
             </publication>
         </book>
-        <book id="1">
+        <book id="2">
             <title>Exercise Physiology</title>
             <author>Mcardle</author>
             <category>Health</category>
@@ -33,7 +31,7 @@
                 <condition>Fiar</condition>               
             </publication>
         </book>
-        <book id="2">
+        <book id="3">
             <title>The New Law of Torts</title>
             <author>Danuta Mendelson</author>
             <category>Legal</category>

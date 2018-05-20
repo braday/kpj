@@ -5,9 +5,11 @@
  */
 package book.wsd;
 
+import book.wsd.dom.BooksPrinter;
 import java.util.*;
 import java.io.Serializable;
 import javax.xml.bind.annotation.*;
+import org.hibernate.validator.constraints.Email;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "users")
@@ -51,5 +53,7 @@ public class Users implements Serializable {
         }
         return false;
     }
+    
+    
 
 }
