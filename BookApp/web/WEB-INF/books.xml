@@ -1,50 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="books.xsl"?>
 <bookshop>
-    <name>Bookstore</name>
-    <books>
-        <book id="1">
-            <title>XML Developer's Guide</title>
-            <author>Matthew Gambardella</author>
-            <category>Computer</category>
-            <qty>3</qty>
-            <price>40.0</price>
-            <publication>
-                <isbn>978-3-16-148410-0</isbn>
-                <edition>3rd edition</edition>
-                <pubYear>2014</pubYear>
-                <publisher>Wiley</publisher>
-                <condition>Good</condition>
-            </publication>
-        </book>
-        <book id="2">
-            <title>Exercise Physiology</title>
-            <author>Mcardle</author>
-            <category>Health</category>
-            <qty>2</qty>
-            <price>35.0</price>
-            <publication>
-                <isbn>988-1-70-146450-3</isbn>
-                <edition>5rd edition</edition>
-                <pubYear>2015</pubYear>
-                <publisher>Wiley</publisher>
-                <condition>Fiar</condition>               
-            </publication>
-        </book>
-        <book id="3">
-            <title>The New Law of Torts</title>
-            <author>Danuta Mendelson</author>
-            <category>Legal</category>
-            <qty>1</qty>
-            <price>78.0</price>
-            <publication>
-                <isbn>988-1-70-146450-3</isbn>
-                <edition>5rd edition</edition>
-                <pubYear>2015</pubYear>
-                <publisher>Wiley</publisher>
-                <condition>Fiar</condition>               
-            </publication>
-        </book>
-    </books>
+    <book id="1">
+        <title>XML Developer's Guide</title>
+        <author>Matthew Gambardella</author>
+        <category>Computer</category>
+        <qty>3</qty>
+        <price>40.0</price>
+        <condition>Good</condition>
+        <publication>
+            <description>a computer book</description>
+            <isbn>978-3-16-148410-0</isbn>
+            <edition>3rd edition</edition>
+            <pubYear>2014</pubYear>
+            <publisher>wiley</publisher>
+        </publication>
+    </book>
+    <book id="2">
+        <title>Exercise Physiology</title>
+        <author>Mcardle</author>
+        <category>Health</category>
+        <qty>1</qty>
+        <price>35.0</price>
+        <condition>fair</condition>
+        <publication>
+            <description>a health book</description>
+            <isbn>988-1-70-146450-3</isbn>
+            <edition>5th edition</edition>
+            <pubYear>2015</pubYear>
+            <publisher>wiley</publisher>
+        </publication>
+    </book>
+    <book id="3">
+        <title>The New Law of Torts</title>
+        <author>Danuta Mendelson</author>
+        <category>Legal</category>
+        <qty>2</qty>
+        <price>55.0</price>
+        <condition>fair</condition>
+        <publication>
+            <description>a law book</description>
+            <isbn>988-1-70-146450-3</isbn>
+            <edition>7th edition</edition>
+            <pubYear>2015</pubYear>
+            <publisher>wiley</publisher>
+        </publication>
+    </book>
 </bookshop>
-

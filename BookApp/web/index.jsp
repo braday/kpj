@@ -1,6 +1,10 @@
-<%@page import="book.wsd.dom.BooksPrinter"%>
+<%@page import="book.wsd.dom.*"%>
 <%@page import="book.wsd.*" import="java.util.*" contentType="text/html" pageEncoding="UTF-8"%>
-<%--<%@taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>--%>
+<!--Code library-->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!--Formatting library-->
+<%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
+
 <%@ include file = "header.jsp" %>
 
 <!DOCTYPE html>
@@ -10,30 +14,20 @@
         <title>JSP Page</title>
     </head>
     <body>
-         <%--  
-        <% String filePath = application.getRealPath("WEB-INF/books.xml");%>
-        <jsp:useBean id="bookApp" class="book.wsd.BookApplication" scope="application">
-            <jsp:setProperty name="bookApp" property="filePath" value="<%=filePath%>"/>
-        </jsp:useBean>
-    
-        <%
-            Books bookList = bookApp.getBooks();
-            ArrayList<Book> list = bookList.getBooks();
-
-        %>
-        --%>
         <div class="container">
-            <table class="table text-center table-hover">
-                <tbody>
-                    <tr>
-                        <th>title </th>
-                        <th>author</th>
-                        <th>category</th>
-                        <th>#</th>
-                    </tr>
-                    
-                </tbody>
-            </table>      
+            <!-- Replace the URL value with the location of movies.xml on your PC, not the whole path -->
+            <c:import url="WEB-INF/books.xml" 
+                      var="inputDoc" />
+
+            <!-- Replace the URL value with the location of movies.xsl on your PC-->
+            <c:import url="WEB-INF/books.xsl"
+                      var="stylesheet" />
+
+            <!-- Transform xml inputDoc using stylesheet -->
+            <x:transform xml  = "${inputDoc}" xslt = "${stylesheet}">        
+                <x:param name="bgColor"  value="lightgreen" />
+            </x:transform>
+
         </div>
 
     </body>

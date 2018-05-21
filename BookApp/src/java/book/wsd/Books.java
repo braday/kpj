@@ -15,9 +15,9 @@ public class Books implements Serializable {
 
     @XmlElement(name = "name")
     private String name;
-    @XmlElementWrapper(name = "books")
+
     @XmlElement(name = "book")
-    private ArrayList<Book> books = new ArrayList<Book>();
+    private List<Book> books = new ArrayList<Book>();
 
     public Books() {
     }
@@ -39,7 +39,7 @@ public class Books implements Serializable {
     /**
      * @return the books
      */
-    public ArrayList<Book> getBooks() {
+    public List<Book> getBooks() {
         return books;
     }
 
@@ -58,17 +58,4 @@ public class Books implements Serializable {
         books.remove(book);
     }
 
-
-    //find all matches
-    public ArrayList<Book> viewBooks() {
-        ArrayList<Book> list = new ArrayList<Book>();
-        int count = 0;
-        for (Book book : books) {
-            if (book.equals(book)) {
-                list.add(book);
-                count++;
-            }
-        }
-        return list;
-    }    
 }

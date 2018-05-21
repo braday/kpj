@@ -12,7 +12,8 @@ import javax.xml.bind.annotation.*;
  *
  * @author Patty
  */
-@XmlAccessorType(XmlAccessType.FIELD) // Use the defaults for fields
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name = "book")
 public class Book implements Serializable {
 
     @XmlAttribute(name = "id")
@@ -25,34 +26,26 @@ public class Book implements Serializable {
     private String category;
     @XmlElement(name = "qty")
     private int qty;
-    @XmlElement(name = "description")
-    private String description;
-    @XmlElement(name = "isbn")
-    private String isbn;
-    @XmlElement(name = "edition")
-    private String edition;
-    @XmlElement(name = "pubYear")
-    private int pubYear;
-    @XmlElement(name = "publisher")
-    private String publisher;
-    @XmlElement(name = "condition")
-    private String condition;
     @XmlElement(name = "price")
     private double price;
+    @XmlElement(name = "condition")
+    private String condition;
+    @XmlElement(name = "publication")
+    private Publication publication;
+    
+    public Book() {
+        
+    }
 
-    public Book(int id, String title, String author, String category, int qty, String description, String isbn, String edition, int pubYear, String publisher, String condition, double price) {
+    public Book(int id, String title, String author, String category, int qty, double price, String condition, Publication publication) {
         this.id = id;
         this.title = title;
         this.author = author;
         this.category = category;
         this.qty = qty;
-        this.description = description;
-        this.isbn = isbn;
-        this.edition = edition;
-        this.pubYear = pubYear;
-        this.publisher = publisher;
-        this.condition = condition;
         this.price = price;
+        this.condition = condition;
+        this.publication = publication;
     }
 
     /**
@@ -126,73 +119,17 @@ public class Book implements Serializable {
     }
 
     /**
-     * @return the description
+     * @return the price
      */
-    public String getDescription() {
-        return description;
+    public double getPrice() {
+        return price;
     }
 
     /**
-     * @param description the description to set
+     * @param price the price to set
      */
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    /**
-     * @return the isbn
-     */
-    public String getIsbn() {
-        return isbn;
-    }
-
-    /**
-     * @param isbn the isbn to set
-     */
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
-
-    /**
-     * @return the edition
-     */
-    public String getEdition() {
-        return edition;
-    }
-
-    /**
-     * @param edition the edition to set
-     */
-    public void setEdition(String edition) {
-        this.edition = edition;
-    }
-
-    /**
-     * @return the pubYear
-     */
-    public int getPubYear() {
-        return pubYear;
-    }
-
-    /**
-     * @param pubYear the pubYear to set
-     */
-    public void setPubYear(int pubYear) {
-        this.pubYear = pubYear;
-    }
-
-    /**
-     * @return the publisher
-     */
-    public String getPublisher() {
-        return publisher;
-    }
-
-    /**
-     * @param publisher the publisher to set
-     */
-    public void setPublisher(String publisher) {
-        this.publisher = publisher;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     /**
@@ -209,19 +146,12 @@ public class Book implements Serializable {
         this.condition = condition;
     }
 
-    /**
-     * @return the price
-     */
-    public double getPrice() {
-        return price;
+    public Publication getPublication() {
+        return publication;
     }
 
-    /**
-     * @param price the price to set
-     */
-    public void setPrice(double price) {
-        this.price = price;
+    public void setPublication(Publication publication) {
+        this.publication = publication;
     }
-    
 
 }

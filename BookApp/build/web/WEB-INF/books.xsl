@@ -11,55 +11,58 @@
         <html>
             <head>
                 <title>books.xsl</title>
+                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous"/>
             </head>
             <body>
-                <xsl:apply-templates/> 
+                <!--All templates with element-->
+                <table class="table text-center table-hover">
+                    <thead>
+                        <tr>
+                            <!-- <th>ID</th>-->
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Category</th>
+                            <th>Qty</th>
+                            <th>Price</th>
+                            <th>Condition</th>
+                            <th>Abstract</th>
+                            <th>ISBN</th>
+                            <th>Edition</th>
+                            <th>Year</th>
+                            <th>Publisher</th>                    
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--match each book template and its child element-->
+                        <xsl:apply-templates/>
+                    </tbody>
+                </table>
+                <p>Total Books No# : <xsl:value-of select="count(/book)"/></p>
             </body>
         </html>
     </xsl:template>
     
-    <!--title element-->
-    <xsl:template match="bookshop/name">
-        <h1>
-            <xsl:apply-templates/>
-        </h1>
-    </xsl:template>
-    
-    <!--booklist element-->
-    <xsl:template match="books"> <!-- id? -->
-        <table>
-            <thead>
-                <tr>
-                    <th>ref#</th>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Category</th>
-                    <th>qty</th>
-                    <th>price</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!--match each book template and its child element-->
-                <xsl:apply-templates/>
-            </tbody>
-        </table>
-    </xsl:template>
-    
-    <!--A email element that is a direct child of user, OR a name element, OR a password element.-->
-    <!--if found user's child element, apply template to find that-->
-    <xsl:template match="id|title|author|category|qty">
+    <!--Row Data Template show the book info-->
+    <xsl:template match="book">
         <tr>
             <xsl:apply-templates/>
-        </tr>
+        </tr>       
     </xsl:template>
-
+    
+    <xsl:template match="book/title|author|category|qty|price|condition">
+        <td>
+            <xsl:apply-templates/>
+        </td>
+    </xsl:template>
+    
+    <!--Access to publication-->
+    <xsl:template match="book/publication">
+            <xsl:apply-templates/>
+    </xsl:template>
+    <!--Row Data Template show publication inside the book-->
+    <xsl:template match="book/publication|description|isbn|edition|pubYear|publisher">
+        <td>
+            <xsl:apply-templates/>
+        </td>
+    </xsl:template>
 </xsl:stylesheet>
-
-<!--
-<publication>
-    <isbn>978-3-16-148410-0</isbn>
-    <edition>3rd edition</edition>
-    <pubYear>2014</pubYear>
-    <publisher>Wiley</publisher>
-    <condition>Good</condition>
-</publication>-->
