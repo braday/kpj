@@ -24,33 +24,36 @@
             User user = users.login(email, password);
 
             // The email and password are correct
-            if (user == null) {
-                message = "hello";
+            if (user != null) {
+                session.setAttribute("user", user);
+                response.sendRedirect(redirectURL);
         %>
         <fieldset>
-            <legend>login.jsp</legend>
-            <h1>Login</h1>
-            <form method="POST" action="login.jsp">
-                <table>
-                    <tbody>
-                        <tr>
-                            <td><label for="email">Email</label></td>
-                            <td><input name="email" type="text" value=""></td>
-                        </tr>
-                        <tr>
-                            <td><label for="password">Password</label></td>
-                            <td><input name="password" type="password"></td>
+            <p>Login successful. Click <a href="index.jsp"> here</a> to return to the main page.</p>
+
+            <% } else {
+            %>
+            <fieldset>
+                <legend>login.jsp</legend>
+                <h1>Login</h1>
+                <form method="POST" action="login.jsp">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><label for="email">Email</label></td>
+                                <td><input name="email" type="text" value=""></td>
+                            </tr>
+                            <tr>
+                                <td><label for="password">Password</label></td>
+                                <td><input name="password" type="password"></td>
+                        <span class="error"><%=message%></span>
                         </tr>
                         <tr><td></td><td><input type="submit" value="Login"></td></tr>
-                    </tbody>
-                </table>
-            </form>
+                        </tbody>
+                    </table>
+                </form>
+            </fieldset>
+            <%}%>
         </fieldset>
-
-        <% } else {
-            session.setAttribute("user", user);
-            response.sendRedirect(redirectURL);%>
-        <%}%>
-
     </body>
 </html>

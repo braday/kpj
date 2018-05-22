@@ -29,23 +29,24 @@
         <p>Click <a href="register.jsp">here</a> to go back.</p>
         <%} else {%>        
         <%
-            if (!users.hasSameEmail(email)) {
+            String message = "";
+            if (!users.isExistingEmail(email)) {
                 response.sendRedirect(redirectURL);
         %>
-        <h1>Welcome!</h1>
-        <p>Welcome,  <%=name%>!</p>
-        <p>Your Email is <%=email%> </p>
-        <p>Your Password is <%=password%> </p>
+        <!--        <h1>Welcome!</h1>
+                <p>Welcome,  <!%=name%>!</p>
+                <p>Your Email is <!%=email%> </p>
+                <p>Your Password is <!%=password%> </p>-->
         <%
             User user = new User(email, name, password);
             session.setAttribute("user", user);
             users.addUser(user);
             userApp.upadateXML(users, filePath);
         %>
-        <p>Click <a href="index.jsp">here</a> to go back.</p>
-        <%} else {%>
-        <p>email existed! Click <a href="register.jsp">here</a> to sign up again.</p>
-        <%}%>
+        <!--        <p>Click <a href="index.jsp">here</a> to go back.</p>-->
+            <%} else {  %>
+            <p>email existed! Click <a href="register.jsp">here</a> to sign up again.</p>
+            <%}%>
         <%}%>
 
         <%} else {%>

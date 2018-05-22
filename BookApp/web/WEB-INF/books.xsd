@@ -5,11 +5,11 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 
-<xs:schema version="1.0"
-           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+<xs:schema version="1.0">
+<!--           xmlns:xs="http://www.w3.org/2001/XMLSchema"
            targetNamespace="https://www.w3schools.com"
            xmlns="https://www.w3schools.com"  
-           elementFormDefault="qualified">
+           elementFormDefault="qualified">-->
     
     <xs:simpleType name="idType">
         <xs:restriction base="xs:integer">
@@ -24,38 +24,33 @@ and open the template in the editor.
     
     <xs:element name="bookshop">
         <xs:complexType>
-            <xs:sequence>                
-                <xs:element type="xs:string" name="name"/> 
-                <xs:element name="books">
+            <xs:sequence>
+                <xs:element name="book" maxOccurs="unbounded" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="book" maxOccurs="unbounded" minOccurs="0">
+                            <xs:element type="xs:string" name="title"/>
+                            <xs:element type="xs:string" name="author"/>
+                            <xs:element type="xs:string" name="category"/>
+                            <xs:element type="xs:integer" name="qty"/>
+                            <xs:element type="xs:float" name="price"/>
+                            <xs:element type="xs:string" name="condition"/>   
+                            <xs:element name="publication">
                                 <xs:complexType>
                                     <xs:sequence>
-                                        <xs:element type="xs:string" name="title"/>
-                                        <xs:element type="xs:string" name="author"/>
-                                        <xs:element type="xs:string" name="category"/>
-                                        <xs:element type="xs:integer" name="qty"/>
-                                        <xs:element type="xs:float" name="price"/>
-                                        <xs:element name="publication">
-                                            <xs:complexType>
-                                                <xs:sequence>
-                                                    <xs:element type="xs:string" name="isbn"/>
-                                                    <xs:element type="xs:string" name="edition"/>
-                                                    <xs:element type="yearType" name="pubYear"/>
-                                                    <xs:element type="xs:string" name="publisher"/>
-                                                    <xs:element type="xs:string" name="condition"/>
-                                                </xs:sequence>
-                                            </xs:complexType>
-                                        </xs:element>
+                                        <xs:element type="xs:string" name="description"/>
+                                        <xs:element type="xs:string" name="isbn"/>
+                                        <xs:element type="xs:string" name="edition"/>
+                                        <xs:element type="yearType" name="pubYear"/>
+                                        <xs:element type="xs:string" name="publisher"/>
                                     </xs:sequence>
-                                    <xs:attribute type="idType" name="id" use="optional"/>
                                 </xs:complexType>
                             </xs:element>
                         </xs:sequence>
+                        <xs:attribute type="idType" name="id" use="optional"/>
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
 </xs:schema>
+

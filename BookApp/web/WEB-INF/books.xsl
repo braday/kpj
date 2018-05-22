@@ -2,12 +2,8 @@
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
     <xsl:output method="html"/>
-
-    <!-- TODO customize transformation rules 
-         syntax recommendation http://www.w3.org/TR/xslt 
-    -->
     
-    <xsl:template match="/">
+    <xsl:template match="/"> <!-- root element -->
         <html>
             <head>
                 <title>books.xsl</title>
@@ -18,7 +14,7 @@
                 <table class="table text-center table-hover">
                     <thead>
                         <tr>
-                            <!-- <th>ID</th>-->
+<!--<th>ID</th>-->
                             <th>Title</th>
                             <th>Author</th>
                             <th>Category</th>
@@ -37,7 +33,7 @@
                         <xsl:apply-templates/>
                     </tbody>
                 </table>
-                <p>Total Books No# : <xsl:value-of select="count(/book)"/></p>
+                <p>Total Books No# : <xsl:value-of select="count(bookshop/book)"/></p>
             </body>
         </html>
     </xsl:template>
@@ -57,7 +53,7 @@
     
     <!--Access to publication-->
     <xsl:template match="book/publication">
-            <xsl:apply-templates/>
+        <xsl:apply-templates/>
     </xsl:template>
     <!--Row Data Template show publication inside the book-->
     <xsl:template match="book/publication|description|isbn|edition|pubYear|publisher">

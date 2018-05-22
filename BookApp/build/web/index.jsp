@@ -14,7 +14,15 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <% String filePath = application.getRealPath("WEB-INF/users.xml");%>
+        <jsp:useBean id="bookApp" class="book.wsd.BookApplication" scope="application">
+            <jsp:setProperty name="bookApp" property="filePath" value="<%=filePath%>"/>
+        </jsp:useBean> 
+        <%
+            Books books = bookApp.getBooks();
+        %>
         <div class="container">
+            </table>
             <!-- Replace the URL value with the location of movies.xml on your PC, not the whole path -->
             <c:import url="WEB-INF/books.xml" 
                       var="inputDoc" />

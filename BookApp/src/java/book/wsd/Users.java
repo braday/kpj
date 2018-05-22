@@ -45,15 +45,18 @@ public class Users implements Serializable {
         return null; // Login incorrect. Return null.
     }
 
-    public boolean hasSameEmail(String email) {
+    public boolean isExistingEmail(String email) throws EmailException {
         for (User user : list) {
-            if (user.getEmail().equals(email)) {
-                return true;
+            try {
+                if (user.getEmail().equals(email)) {
+                    return true;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                throw new EmailException();
             }
+
         }
         return false;
     }
-    
-    
-
 }
