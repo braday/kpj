@@ -85,11 +85,11 @@ public class Validation extends HttpServlet {
         // Repeat for all parameters.
         if (errors.isEmpty()) {
             // No errors, redirect to Amtrak.
-            response.sendRedirect("http://amtrak.com");
+            response.sendRedirect("/index.jsp");
         } else {
             // Put errors in request scope and forward back to JSP.
             request.setAttribute("errors", errors);
-            request.getRequestDispatcher("FareFinder.jsp").forward(request, response);
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         }
     }
 

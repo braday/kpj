@@ -17,40 +17,25 @@
             String password = request.getParameter("password");
             String email = request.getParameter("email");
             String redirectURL = "index.jsp";
+            String loginURL = "login.jsp";
 
-            String message = "";
 
             Users users = userApp.getUsers();
             User user = users.login(email, password);
 
             // The email and password are correct
-            if (user == null) {
-                message = "hello";
+            if (user != null) {
+                session.setAttribute("user", user);
+                //response.sendRedirect(redirectURL);
         %>
         <fieldset>
-            <legend>login.jsp</legend>
-            <h1>Login</h1>
-            <form method="POST" action="login.jsp">
-                <table>
-                    <tbody>
-                        <tr>
-                            <td><label for="email">Email</label></td>
-                            <td><input name="email" type="text" value=""></td>
-                        </tr>
-                        <tr>
-                            <td><label for="password">Password</label></td>
-                            <td><input name="password" type="password"></td>
-                        </tr>
-                        <tr><td></td><td><input type="submit" value="Login"></td></tr>
-                    </tbody>
-                </table>
-            </form>
+            <p>Login successful. Click <a href="index.jsp"> here</a> to return to the main page.</p>
+            <p>email: <%= email%></p>
+            <p>password: <%=password%></p>
+            <% } else {%>
+            <p>Password incorrect. Click <a href="login.jsp"> here</a> to try again.</p>
+            <!--response.sendRedirect(redirectURL);-->
+            <%}%>
         </fieldset>
-
-        <% } else {
-            session.setAttribute("user", user);
-            response.sendRedirect(redirectURL);%>
-        <%}%>
-
     </body>
 </html>

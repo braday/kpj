@@ -9,7 +9,6 @@ import book.wsd.dom.BooksPrinter;
 import java.util.*;
 import java.io.Serializable;
 import javax.xml.bind.annotation.*;
-import org.hibernate.validator.constraints.Email;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "users")
@@ -20,6 +19,8 @@ public class Users implements Serializable {
     @XmlElement(name = "user")
     private ArrayList<User> list = new ArrayList<User>();
 
+    private String message;
+    
     public Users() {
     }
 
@@ -27,6 +28,13 @@ public class Users implements Serializable {
         return list;
     }
 
+    /**
+     * @return the message
+     */
+    public String getMessage() {
+        return message;
+    }
+    
     public void addUser(User user) {
         list.add(user);
     }
@@ -55,8 +63,34 @@ public class Users implements Serializable {
                 e.printStackTrace();
                 throw new EmailException();
             }
-
         }
         return false;
     }
+
+    public boolean validate() {
+        for (User user : list) {
+            String email = user.getEmail();
+            String password = user.getPassword();
+            String message = user.getMessage();
+
+
+            if (!email.matches("\\w+@\\w+\\.\\w+")) {
+                message = "invalid email!";
+                return false;
+            }
+
+            if (password.length() < 4) {
+                message = "errrr";
+                return false;
+            } else if (!password.matches("\\w*\\s+\\w*")) {
+                //char contains space
+                message = "contains space!!!";
+                return false;
+            }
+        }
+
+        // after check all validate,then return ture;
+        return true;
+    }
+
 }

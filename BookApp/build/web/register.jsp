@@ -29,7 +29,6 @@
         <p>Click <a href="register.jsp">here</a> to go back.</p>
         <%} else {%>        
         <%
-            String message = "";
             if (!users.isExistingEmail(email)) {
                 response.sendRedirect(redirectURL);
         %>

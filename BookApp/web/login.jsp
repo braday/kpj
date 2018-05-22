@@ -12,6 +12,18 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <% String filePath = application.getRealPath("WEB-INF/users.xml");%>
+        <jsp:useBean id="userApp" class="book.wsd.UserApplication" scope="application">
+            <jsp:setProperty name="userApp" property="filePath" value="<%=filePath%>"/>
+        </jsp:useBean>
+
+        <%
+            Users users = userApp.getUsers();
+            String password = request.getParameter("password");
+            String email = request.getParameter("email");
+            String errMsg = request.getParameter("message");
+        %>
+
         <fieldset>
             <legend>login.jsp</legend>
             <h1>Login</h1>
@@ -20,13 +32,13 @@
                     <tbody>
                         <tr>
                             <td><label for="email">Email</label></td>
-                            <td><input name="email" type="text"></td>
+                            <td><input name="email" type="text" value="<%=email%>"/></td>
                         </tr>
                         <tr>
                             <td><label for="password">Password</label></td>
-                            <td><input name="password" type="password"></td>
+                            <td><input name="password" type="password" value="<%=password%>"/></td>
                         </tr>
-                        <tr><td></td><td><input type="submit" value="Login"></td></tr>
+                        <tr><td><input type="submit" value="Login"></td></tr>
                     </tbody>
                 </table>
             </form>
