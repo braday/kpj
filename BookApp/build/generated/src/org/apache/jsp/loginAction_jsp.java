@@ -74,22 +74,25 @@ filePath);
       out.write("\n");
       out.write("        ");
 
-            // preset from users.xml
+            // get user email and password
             String password = request.getParameter("password");
             String email = request.getParameter("email");
-            String redirectURL = "index.jsp";
+            String name = request.getParameter("name");
 
-            String message = "";
+            request.setAttribute("error_msg", "");
+
+            String redirectURL = "index.jsp";
+            String loginURL = "login.jsp";
 
             Users users = userApp.getUsers();
             User user = users.login(email, password);
 
-// The email and password are correct
+            // The email and password are validated
             if (user != null) {
-                session.setAttribute("user", user);
                 //response.sendRedirect(redirectURL);
-
-      out.write("\n");
+                session.setAttribute("user", user);
+        
+      out.write("  \n");
       out.write("        <fieldset>\n");
       out.write("            <p>Login successful. Click <a href=\"index.jsp\"> here</a> to return to the main page.</p>\n");
       out.write("            <p>email: ");
@@ -97,35 +100,35 @@ filePath);
       out.write("</p>\n");
       out.write("            <p>password: ");
       out.print(password);
-      out.write("</p>\n");
+      out.write("</p>          \n");
+      out.write("\n");
       out.write("            ");
  } else {
+//                response.sendRedirect(loginURL);
+
+      out.write("    \n");
       out.write("\n");
-      out.write("            <p>");
-      out.print(message);
-      out.write("</p>\n");
+      out.write("            <!--<p>Password incorrect. Click <a href=\"login.jsp\"> here</a> to try again.</p>-->\n");
       out.write("            <fieldset>\n");
       out.write("                <legend>login.jsp</legend>\n");
       out.write("                <h1>Login</h1>\n");
-      out.write("                <form method=\"POST\" action=\"login.jsp\">\n");
+      out.write("                <form method=\"POST\" action=\"loginAction,jsp\">\n");
+      out.write("                    <!--<input type=\"hidden\" name=\"action\" value =dologin\"/>-->\n");
       out.write("                    <table>\n");
       out.write("                        <tbody>\n");
       out.write("                            <tr>\n");
       out.write("                                <td><label for=\"email\">Email</label></td>\n");
       out.write("                                <td><input name=\"email\" type=\"text\" value=\"");
-      out.print(email);
       out.write("\"></td>\n");
       out.write("                            </tr>\n");
       out.write("                            <tr>\n");
       out.write("                                <td><label for=\"password\">Password</label></td>\n");
       out.write("                                <td><input name=\"password\" type=\"password\" value=\"");
-      out.print(password);
-      out.write("></td>\n");
-      out.write("                        <span class=\"error\">");
-      out.print(message);
-      out.write("</span>\n");
-      out.write("                        </tr>\n");
-      out.write("                        <tr><td><input type=\"submit\" value=\"Login\"></td></tr>\n");
+      out.write("\"/></td>\n");
+      out.write("                            </tr>\n");
+      out.write("                            <tr><td><input type=\"submit\" value=\"Login\"></td></tr>\n");
+      out.write("                        <p>");
+      out.write("</p>\n");
       out.write("                        </tbody>\n");
       out.write("                    </table>\n");
       out.write("                </form>\n");

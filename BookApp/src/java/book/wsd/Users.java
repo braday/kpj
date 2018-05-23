@@ -19,8 +19,7 @@ public class Users implements Serializable {
     @XmlElement(name = "user")
     private ArrayList<User> list = new ArrayList<User>();
 
-    private String message;
-    
+//    private String message;
     public Users() {
     }
 
@@ -29,23 +28,29 @@ public class Users implements Serializable {
     }
 
     /**
+     * @param list the list to set
+     */
+    public void setList(ArrayList<User> list) {
+        this.list = list;
+    }
+
+    /**
      * @return the message
      */
-    public String getMessage() {
-        return message;
-    }
-    
+//    public String getMessage() {
+//        return message;
+//    }
     public void addUser(User user) {
-        list.add(user);
+        getList().add(user);
     }
 
     public void removeUser(User user) {
-        list.remove(user);
+        getList().remove(user);
     }
 
     public User login(String email, String password) {
         // For each user in the list...
-        for (User user : list) {
+        for (User user : getList()) {
             if (user.getEmail().equals(email) && user.getPassword().equals(password)) {
                 return user; // Login correct. Return this user.
             }
@@ -54,7 +59,7 @@ public class Users implements Serializable {
     }
 
     public boolean isExistingEmail(String email) throws EmailException {
-        for (User user : list) {
+        for (User user : getList()) {
             try {
                 if (user.getEmail().equals(email)) {
                     return true;
@@ -68,29 +73,29 @@ public class Users implements Serializable {
     }
 
     public boolean validate() {
-        for (User user : list) {
-            String email = user.getEmail();
-            String password = user.getPassword();
-            String message = user.getMessage();
-
-
-            if (!email.matches("\\w+@\\w+\\.\\w+")) {
-                message = "invalid email!";
-                return false;
-            }
-
-            if (password.length() < 4) {
-                message = "errrr";
-                return false;
-            } else if (!password.matches("\\w*\\s+\\w*")) {
-                //char contains space
-                message = "contains space!!!";
-                return false;
+        for (User user : getList()) { // get the user list
+            if (user.validate()) {
+                return true;
             }
         }
-
-        // after check all validate,then return ture;
-        return true;
+        return false;
+    }
+    
+    public String validateMsg(){
+        for (User user : list) {
+            return user.getMessage();
+        }
+        return null;
     }
 
+    public static void main(String[] args) {
+
+        User user = new User("jess@123.com", "jess", "123 abc");
+
+        if (user.validate()) {
+            System.out.println("ok???");
+        } else {
+            System.out.println(user.getMessage());
+        }
+    }
 }

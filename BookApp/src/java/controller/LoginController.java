@@ -3,15 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package book.wsd.validation;
+package controller;
 
-import book.wsd.User;
-import book.wsd.Users;
+import book.wsd.*;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.HashMap;
-import java.util.Map;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,7 +18,12 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Patty
  */
-public class Validation extends HttpServlet {
+@WebServlet(name = "LoginController", urlPatterns = {"/LoginController"})
+public class LoginController extends HttpServlet {
+
+    public LoginController() {
+        super();
+    }
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,10 +42,10 @@ public class Validation extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Validation</title>");
+            out.println("<title>Servlet LoginController</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Validation at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet LoginController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -60,7 +63,21 @@ public class Validation extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
+
+        String action = request.getParameter("action");
+
+        if (action == null) {
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
+        } else if (action.equals("login")) {
+
+            request.setAttribute("email", "");
+            request.setAttribute("password", "");
+            request.setAttribute("error_msg", "");
+
+            request.getRequestDispatcher("/login.jsp").forward(request, response);
+
+        }
     }
 
     /**
@@ -72,24 +89,36 @@ public class Validation extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Map<String, String> errors = new HashMap<String, String>();
-        
-        Users users = new Users();
-        
-        String email = request.getParameter("email");
-        if (email.equals(null)) {
-            errors.put("email", "Put error message here.");
-        }
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        //processRequest(request, response);
 
-        // Repeat for all parameters.
-        if (errors.isEmpty()) {
-            // No errors, redirect to Amtrak.
-            response.sendRedirect("/index.jsp");
-        } else {
-            // Put errors in request scope and forward back to JSP.
-            request.setAttribute("errors", errors);
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+        String action = request.getParameter("action");
+
+
+        if (action == null) {
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
+        } else if (action.equals("dologin")) {
+            String email = request.getParameter("email");
+            String password = request.getParameter("password");
+            String name = request.getParameter("name");
+            
+//User user = new User(email, name, password);
+            
+            Users users = new Users();
+            
+            //User user = new User(email, name, password);
+
+            request.setAttribute("email", email);
+            request.setAttribute("password", password);
+            request.setAttribute("error_msg", "");
+
+            if (users.validate()) {
+                request.getRequestDispatcher("/index.jsp").forward(request, response);
+            } else {
+                request.setAttribute("error_msg", users.validateMsg());
+                request.getRequestDispatcher("/login.jsp").forward(request, response);
+            }
         }
     }
 

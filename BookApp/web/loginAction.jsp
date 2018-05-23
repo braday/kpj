@@ -13,28 +13,35 @@
         </jsp:useBean>
 
         <%
-            // preset from users.xml
+            // get user email and password
             String password = request.getParameter("password");
             String email = request.getParameter("email");
+            String name = request.getParameter("name");
+
+            request.setAttribute("error_msg", "");
+
             String redirectURL = "index.jsp";
             String loginURL = "login.jsp";
-
 
             Users users = userApp.getUsers();
             User user = users.login(email, password);
 
-            // The email and password are correct
+            // The email and password are validated
             if (user != null) {
-                session.setAttribute("user", user);
                 //response.sendRedirect(redirectURL);
-        %>
+                session.setAttribute("user", user);
+        %>  
         <fieldset>
             <p>Login successful. Click <a href="index.jsp"> here</a> to return to the main page.</p>
             <p>email: <%= email%></p>
-            <p>password: <%=password%></p>
-            <% } else {%>
+            <p>password: <%=password%></p>          
+
+            <% } else {
+//                response.sendRedirect(loginURL);
+            %>    
+
             <p>Password incorrect. Click <a href="login.jsp"> here</a> to try again.</p>
-            <!--response.sendRedirect(redirectURL);-->
+
             <%}%>
         </fieldset>
     </body>

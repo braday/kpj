@@ -12,33 +12,23 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <% String filePath = application.getRealPath("WEB-INF/users.xml");%>
-        <jsp:useBean id="userApp" class="book.wsd.UserApplication" scope="application">
-            <jsp:setProperty name="userApp" property="filePath" value="<%=filePath%>"/>
-        </jsp:useBean>
-
-        <%
-            Users users = userApp.getUsers();
-            String password = request.getParameter("password");
-            String email = request.getParameter("email");
-            String errMsg = request.getParameter("message");
-        %>
-
         <fieldset>
             <legend>login.jsp</legend>
             <h1>Login</h1>
             <form method="POST" action="loginAction.jsp">
+                <!--<input type="hidden" name="action" value =dologin"/>-->
                 <table>
                     <tbody>
                         <tr>
                             <td><label for="email">Email</label></td>
-                            <td><input name="email" type="text" value="<%=email%>"/></td>
+                            <td><input name="email" type="text" value="<%= request.getAttribute("email")%>"></td>
                         </tr>
                         <tr>
                             <td><label for="password">Password</label></td>
-                            <td><input name="password" type="password" value="<%=password%>"/></td>
+                            <td><input name="password" type="password" value="<%= request.getAttribute("password")%>"/></td>
                         </tr>
                         <tr><td><input type="submit" value="Login"></td></tr>
+                    <p><%--= request.getAttribute("error_msg")--%></p>
                     </tbody>
                 </table>
             </form>

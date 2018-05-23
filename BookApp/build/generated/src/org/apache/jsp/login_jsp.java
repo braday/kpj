@@ -53,60 +53,29 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <title>JSP Page</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
-      out.write("        ");
- String filePath = application.getRealPath("WEB-INF/users.xml");
-      out.write("\n");
-      out.write("        ");
-      book.wsd.UserApplication userApp = null;
-      synchronized (application) {
-        userApp = (book.wsd.UserApplication) _jspx_page_context.getAttribute("userApp", PageContext.APPLICATION_SCOPE);
-        if (userApp == null){
-          userApp = new book.wsd.UserApplication();
-          _jspx_page_context.setAttribute("userApp", userApp, PageContext.APPLICATION_SCOPE);
-          out.write("\n");
-          out.write("            ");
-          org.apache.jasper.runtime.JspRuntimeLibrary.handleSetProperty(_jspx_page_context.findAttribute("userApp"), "filePath",
-filePath);
-          out.write("\n");
-          out.write("        ");
-        }
-      }
-      out.write("\n");
-      out.write("\n");
-      out.write("        ");
-
-            Users users = userApp.getUsers();
-            String password = request.getParameter("password");
-            String email = request.getParameter("email");
-            String errMsg = request.getParameter("message");
-        
-      out.write('\n');
- if(users.validate()){
-    request.getRequestDispatcher("loginAction.jsp").forward(request, response);
-} 
-      out.write("\n");
-      out.write("        <p>");
-      out.print(errMsg);
-      out.write("</p>\n");
       out.write("        <fieldset>\n");
       out.write("            <legend>login.jsp</legend>\n");
       out.write("            <h1>Login</h1>\n");
       out.write("            <form method=\"POST\" action=\"loginAction.jsp\">\n");
+      out.write("                <!--<input type=\"hidden\" name=\"action\" value =dologin\"/>-->\n");
       out.write("                <table>\n");
       out.write("                    <tbody>\n");
       out.write("                        <tr>\n");
       out.write("                            <td><label for=\"email\">Email</label></td>\n");
       out.write("                            <td><input name=\"email\" type=\"text\" value=\"");
-      out.print(email);
-      out.write("\"/></td>\n");
+      out.print( request.getAttribute("email"));
+      out.write("\"></td>\n");
       out.write("                        </tr>\n");
       out.write("                        <tr>\n");
       out.write("                            <td><label for=\"password\">Password</label></td>\n");
       out.write("                            <td><input name=\"password\" type=\"password\" value=\"");
-      out.print(password);
+      out.print( request.getAttribute("password"));
       out.write("\"/></td>\n");
       out.write("                        </tr>\n");
-      out.write("                        <tr><td></td><td><input type=\"submit\" value=\"Login\"></td></tr>\n");
+      out.write("                        <tr><td><input type=\"submit\" value=\"Login\"></td></tr>\n");
+      out.write("                    <p>");
+      out.print( request.getAttribute("error_msg"));
+      out.write("</p>\n");
       out.write("                    </tbody>\n");
       out.write("                </table>\n");
       out.write("            </form>\n");

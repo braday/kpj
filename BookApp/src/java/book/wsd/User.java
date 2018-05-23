@@ -15,11 +15,11 @@ public class User implements Serializable {
 // Each of these fields will be automatically mapped to an XML Element of the same name.
 
     @XmlElement(name = "email") // eg. this field will be mapped to an XML element called "email"
-    private String email = "";
+    private String email;
     @XmlElement(name = "name")
     private String name;
     @XmlElement(name = "password")
-    private String password = "";
+    private String password;
 
     private String message;
 
@@ -65,24 +65,23 @@ public class User implements Serializable {
         return message;
     }
 
-//    public boolean validate() {
-//
-//        if (!email.matches("\\w+@\\w+\\.\\w+")) {
-//            message = "invalid email!";
-//            return false;
-//        }
-//
-//        if (password.length() < 4) {
-//            message = "errrr";
-//            return false;
-//        } else if (!password.matches("\\w*\\s+\\w*")) {
-//            //char contains space
-//            message = "contains space!!!";
-//            return false;
-//        }
-//        // after check all validate,then return ture;
-//        return true;
-//    }
+    public boolean validate() {
+        if (!email.matches("\\w+@\\w+\\.\\w+")) {
+            message = "invalid email!";
+            return false;
+        }
+
+        if (password.length() < 4) {
+            message = "errrr";
+            return false;
+        } else if (!password.matches("\\w*\\s+\\w*")) {
+            //char contains space
+            message = "contains space!!!";
+            return false;
+        }
+        // after check all validate,then return ture;
+        return true;
+    }
 
     @Override
     public String toString() {
