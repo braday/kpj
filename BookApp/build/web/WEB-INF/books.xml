@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<?xml-stylesheet 
+    type="text/xsl"
+    version="2.0"
+    herf="books.xsl"?
+    href="bookDetail.xsl"?>
 <bookshop>
     <book id="1">
         <title>XML Developer's Guide</title>
@@ -45,5 +49,5 @@
             <pubYear>2015</pubYear>
             <publisher>wiley</publisher>
         </publication>
-    </book>
+    </book>        
 </bookshop>

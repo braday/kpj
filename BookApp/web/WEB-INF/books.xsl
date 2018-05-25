@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0">
     <xsl:output method="html"/>
     
     <xsl:template match="/"> <!-- root element -->
@@ -17,12 +17,7 @@
                             <th>Title</th>
                             <th>Author</th>
                             <th>Category</th>
-                            <th>Qty</th>
-<!--                            <th>Abstract</th>
-                            <th>ISBN</th>
-                            <th>Edition</th>
-                            <th>Year</th>
-                            <th>Publisher</th>                    -->
+                            <th>Qty</th>             
                         </tr>
                     </thead>
                     <tbody>
@@ -35,28 +30,15 @@
         </html>
     </xsl:template>
     
-
-<!--    <xsl:template match="book">
-        <tr>
-            <xsl:apply-templates/>
-        </tr>       
-    </xsl:template>
-    
-    <xsl:template match="book/author|category|qty|price|condition">
-        <td>
-            <xsl:apply-templates/>
-        </td>
-    </xsl:template>-->
-    
-    <!--Row Data Template show the book info--> 
     <xsl:template match="book">
-    
+        <xsl:variable name="href">bookDetail.jsp?title=<xsl:value-of select="title"/></xsl:variable>  
         <tr>
             <td>
-                <a href="">
+                <a href="{$href}">
                     <xsl:value-of select="title"/>
-                </a> 
+                </a>
             </td>
+        
             <td>
                 <xsl:value-of select="author"/>
             </td>
@@ -69,34 +51,24 @@
             </td>
             <!--<xsl:apply-templates/>-->   
         </tr> 
- 
     </xsl:template>
+    <xsl:template match="description"/>
+    <xsl:template match="isbn"/>
+    <xsl:template match="edition"/>
+    <xsl:template match="pubYear"/>
+    <xsl:template match="publisher"/>
+
 </xsl:stylesheet>
 
-    <!--Access to publication-->
-<!--    <xsl:template match="book/publication">
 
-        <td>
-            <xsl:value-of select="description"/>
-        </td>
-        <td>
-            <xsl:value-of select="isbn"/>
-        </td>
-        <td>
-            <xsl:value-of select="edition"/>
-        </td>
-        <td>
-            <xsl:value-of select="pubYear"/>
-        </td>
-        <td>
-            <xsl:value-of select="publisher"/>
-        </td>         
-        
-    </xsl:template>  -->
     
-    
-<!--Row Data Template show publication inside the book-->
-    
+<!--   
+<xsl:template match="book/author|category|qty|price|condition">
+    <td>
+        <xsl:apply-templates/>
+    </td>
+</xsl:template>-->
+     
 <!--    <xsl:template match="book/publication">
     <xsl:apply-templates/>
 </xsl:template>

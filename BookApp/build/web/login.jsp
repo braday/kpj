@@ -10,7 +10,6 @@
     <body>
         <fieldset>
             <legend>login.jsp</legend>
-            <h1>Login</h1>
             <form method="POST" action="loginAction.jsp">
                 <input type="hidden" name="action" value =dologin"/>
                 <table>
