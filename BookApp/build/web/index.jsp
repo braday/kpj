@@ -15,11 +15,15 @@
     </head>
     <body>
         <div class="container">
-            <!-- Replace the URL value with the location of movies.xml on your PC, not the whole path -->
+            
+            <input type="button" value="Add Book" 
+                    onclick="window.location.href='add-book-form.jsp'; return false;"
+                    class="alert alert-primary" />
+            
+            
             <c:import url="WEB-INF/books.xml" 
                       var="inputDoc" />
 
-            <!-- Replace the URL value with the location of movies.xsl on your PC-->
             <c:import url="WEB-INF/books.xsl"
                       var="stylesheet" />
 
