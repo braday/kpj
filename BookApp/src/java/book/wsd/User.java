@@ -65,23 +65,34 @@ public class User implements Serializable {
         return message;
     }
 
-    public boolean validate() {
-        if (!email.matches("\\w+@\\w+\\.\\w+")) {
-            message = "invalid email!";
-            return false;
-        }
-
-        if (password.length() < 4) {
-            message = "errrr";
-            return false;
-        } else if (!password.matches("\\w*\\s+\\w*")) {
-            //char contains space
-            message = "contains space!!!";
-            return false;
-        }
-        // after check all validate,then return ture;
-        return true;
-    }
+//    public boolean validation() {
+//        if (!email.matches("\\w+@\\w+\\.\\w+")) {
+//            message = "invalid email!";
+//            return false;
+//        }
+//
+//        if (password.length() < 4) {
+//            message = "errrr";
+//            return false;
+//        } else if (!password.matches("\\w*\\s+\\w*")) {
+//            //char contains space
+//            message = "contains space!!!";
+//            return false;
+//        }
+//        // after check all validate,then return ture;
+//        return true;
+//    }
+//
+//    public static void main(String[] args) {
+//
+//        User user = new User("jess@123.com", "jess", "123 abc");
+//
+//        if (user.validation()) {
+//            System.out.println("ok???");
+//        } else {
+//            System.out.println(user.getMessage());
+//        }
+//    }
 
     @Override
     public String toString() {

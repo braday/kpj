@@ -72,30 +72,4 @@ public class Users implements Serializable {
         return false;
     }
 
-    public boolean validate() {
-        for (User user : getList()) { // get the user list
-            if (user.validate()) {
-                return true;
-            }
-        }
-        return false;
-    }
-    
-    public String validateMsg(){
-        for (User user : list) {
-            return user.getMessage();
-        }
-        return null;
-    }
-
-    public static void main(String[] args) {
-
-        User user = new User("jess@123.com", "jess", "123 abc");
-
-        if (user.validate()) {
-            System.out.println("ok???");
-        } else {
-            System.out.println(user.getMessage());
-        }
-    }
 }

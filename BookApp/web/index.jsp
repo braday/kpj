@@ -15,7 +15,6 @@
     </head>
     <body>
         <div class="container">
-            </table>
             <!-- Replace the URL value with the location of movies.xml on your PC, not the whole path -->
             <c:import url="WEB-INF/books.xml" 
                       var="inputDoc" />

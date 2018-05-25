@@ -1,4 +1,7 @@
 <%@page contentType="text/html" import="book.wsd.*" import="java.util.*" pageEncoding="UTF-8"%>
+
+<%@ include file = "header.jsp" %>
+
 <!DOCTYPE html>
 <html>
     <head>

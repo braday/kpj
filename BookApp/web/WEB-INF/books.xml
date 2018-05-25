@@ -5,7 +5,7 @@
         <title>XML Developer's Guide</title>
         <author>Matthew Gambardella</author>
         <category>Computer</category>
-        <qty>3</qty>
+        <qty>1</qty>
         <price>40.0</price>
         <condition>Good</condition>
         <publication>
@@ -35,7 +35,7 @@
         <title>The New Law of Torts</title>
         <author>Danuta Mendelson</author>
         <category>Legal</category>
-        <qty>2</qty>
+        <qty>1</qty>
         <price>55.0</price>
         <condition>fair</condition>
         <publication>

@@ -16,33 +16,59 @@
             // get user email and password
             String password = request.getParameter("password");
             String email = request.getParameter("email");
-            String name = request.getParameter("name");
-
-            request.setAttribute("error_msg", "");
-
-            String redirectURL = "index.jsp";
+            String error = request.getParameter("message");
             String loginURL = "login.jsp";
 
             Users users = userApp.getUsers();
+
             User user = users.login(email, password);
 
-            // The email and password are validated
-            if (user != null) {
-                //response.sendRedirect(redirectURL);
-                session.setAttribute("user", user);
-        %>  
-        <fieldset>
-            <p>Login successful. Click <a href="index.jsp"> here</a> to return to the main page.</p>
-            <p>email: <%= email%></p>
-            <p>password: <%=password%></p>          
+            if (user != null || email != null && password != null) {
+        %>
 
-            <% } else {
-//                response.sendRedirect(loginURL);
-            %>    
+        <form method="POST" action="loginAction.jsp">
+            <table>
+                <tbody>
+                    <tr>
+                        <% 
+                            if (!email.matches("\\w+@\\w+\\.\\w+")) {
+                                error = "invalid email!";
+                        %>
+                        <td><label for="email">Email</label></td>
+                        <td><input name="email" type="text" value="<%=email%>"></td>
+                        <p><%= error%></p>
+                        <%}%>
+                    </tr>
+                <tr>
+                    <%
+                        if (password.length() < 4) {
+                            error = "errrr";
+                        } 
+                        else if (!password.matches("\\w*\\s+\\w*")) {
+                            //char contains space
+                            error = "email contains space!!!";
+                    %>
+                    <td><label for="password">Password</label></td>
+                    <td><input name="password" type="password" value="<%=password%>"/></td>
+                <p><%= error%></p>
+                <%}%>
+                </tr>
+                <tr><td><input type="submit" value="Login"></td></tr>
+                <p></p>
+                </tbody>
+            </table>
+        </form>   
 
-            <p>Password incorrect. Click <a href="login.jsp"> here</a> to try again.</p>
+        <% } else {
+            //response.sendRedirect(redirectURL);
+            session.setAttribute("user", user);
+        %> 
 
-            <%}%>
-        </fieldset>
-    </body>
+        <p>Login successful. Click <a href="index.jsp"> here</a> to return to the main page.</p>
+        <p>email: <%= email%></p>
+        <p>password: <%=password%></p> 
+
+        <%}%>
+    </fieldset>
+</body>
 </html>
