@@ -16,9 +16,9 @@
     <body>
         <div class="container">
             
-            <input type="button" value="Add Book" 
+<!--            <input type="button" value="Add Book" 
                     onclick="window.location.href='add-book-form.jsp'; return false;"
-                    class="alert alert-primary" />
+                    class="alert alert-primary" />-->
             
             
             <c:import url="WEB-INF/books.xml" 

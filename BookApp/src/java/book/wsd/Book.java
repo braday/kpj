@@ -1,19 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package book.wsd;
 
 import java.io.Serializable;
 import javax.xml.bind.annotation.*;
 
-/**
- *
- * @author Patty
- */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "book")
+@XmlRootElement(name = "book", namespace = "http://www.uts.edu.au/31284/wsd-books")
 public class Book implements Serializable {
 
     @XmlAttribute(name = "id")
@@ -33,8 +24,7 @@ public class Book implements Serializable {
     @XmlElement(name = "publication")
     private Publication publication;
     
-    public Book() {
-        
+    public Book() {        
     }
 
     public Book(int id, String title, String author, String category, int qty, double price, String condition, Publication publication) {

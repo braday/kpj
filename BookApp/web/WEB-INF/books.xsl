@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!--
+    Document   : books.xsl
+    Created on : 27 May 2018, 10:38 PM
+    Author     : Patty
+    Description:
+        Purpose of transformation follows.
+-->
+
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0">
     <xsl:output method="html"/>
     
@@ -21,11 +29,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!--match each book template and its child element-->
+                        <!--invoke the book element-->
                         <xsl:apply-templates/>
                     </tbody>
                 </table>
-                <p>Total Books No# : <xsl:value-of select="count(bookshop/book)"/></p>
             </body>
         </html>
     </xsl:template>
@@ -49,31 +56,7 @@
             <td>
                 <xsl:value-of select="qty"/>
             </td>
-            <!--<xsl:apply-templates/>-->   
         </tr> 
     </xsl:template>
-    <xsl:template match="description"/>
-    <xsl:template match="isbn"/>
-    <xsl:template match="edition"/>
-    <xsl:template match="pubYear"/>
-    <xsl:template match="publisher"/>
 
 </xsl:stylesheet>
-
-
-    
-<!--   
-<xsl:template match="book/author|category|qty|price|condition">
-    <td>
-        <xsl:apply-templates/>
-    </td>
-</xsl:template>-->
-     
-<!--    <xsl:template match="book/publication">
-    <xsl:apply-templates/>
-</xsl:template>
-<xsl:template match="book/publication|description|isbn|edition|pubYear|publisher">
-    <td>
-        <xsl:apply-templates/>
-    </td>
-</xsl:template>-->

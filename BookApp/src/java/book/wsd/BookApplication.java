@@ -10,9 +10,9 @@ public class BookApplication {
 
     // Two Properties
     private String filePath;
-    private Books books;
+    private Bookshop books;
 
-    public BookApplication(String filePath, Books books) {
+    public BookApplication(String filePath, Bookshop books) {
         this.filePath = filePath;
         this.books = books;
     }
@@ -30,18 +30,18 @@ public class BookApplication {
     public void setFilePath(String filePath) throws Exception {
         this.filePath = filePath;
         // Create the unmarshaller
-        JAXBContext jc = JAXBContext.newInstance(Books.class);
+        JAXBContext jc = JAXBContext.newInstance(Bookshop.class);
         Unmarshaller u = jc.createUnmarshaller();
 
         // Now unmarshal the object from the file
         FileInputStream fin = new FileInputStream(filePath);
-        books = (Books) u.unmarshal(fin); // This loads the "books" object
+        books = (Bookshop) u.unmarshal(fin); // This loads the "books" object
         fin.close();
     }
-    public void upadateXML(Books books, String filePath) throws Exception {
+    public void upadateXML(Bookshop books, String filePath) throws Exception {
         this.books = books;
         this.filePath = filePath;
-        JAXBContext jc = JAXBContext.newInstance(Books.class);
+        JAXBContext jc = JAXBContext.newInstance(Bookshop.class);
         Marshaller m = jc.createMarshaller();
         m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
         FileOutputStream fout = new FileOutputStream(filePath);
@@ -62,14 +62,14 @@ public class BookApplication {
     /**
      * @return the books
      */
-    public Books getBooks() {
+    public Bookshop getBooks() {
         return books;
     }
 
     /**
      * @param books the books to set
      */
-    public void setBooks(Books books) {
+    public void setBooks(Bookshop books) {
         this.books = books;
     }
 

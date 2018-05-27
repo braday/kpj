@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Putty
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "publication")
+@XmlRootElement(name = "publication", namespace = "http://www.uts.edu.au/31284/wsd-books")
 public class Publication implements Serializable {
 
     @XmlElement(name = "description")

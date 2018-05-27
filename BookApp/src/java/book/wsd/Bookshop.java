@@ -10,30 +10,14 @@ import java.util.*;
 import javax.xml.bind.annotation.*;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "bookshop")
-public class Books implements Serializable {
+@XmlRootElement(name = "bookshop", namespace = "http://www.uts.edu.au/31284/wsd-books")
+public class Bookshop implements Serializable {
 
-    @XmlElement(name = "name")
-    private String name;
-
+//    @XmlElementWrapper(name = "books")
     @XmlElement(name = "book")
     private List<Book> books = new ArrayList<Book>();
 
-    public Books() {
-    }
-
-    /**
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * @param name the name to set
-     */
-    public void setName(String name) {
-        this.name = name;
+    public Bookshop() {
     }
 
     /**
