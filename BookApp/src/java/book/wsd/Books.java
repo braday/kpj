@@ -10,11 +10,8 @@ import java.util.*;
 import javax.xml.bind.annotation.*;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "bookshop")
+@XmlRootElement(name = "books")
 public class Books implements Serializable {
-
-    @XmlElement(name = "name")
-    private String name;
 
     @XmlElement(name = "book")
     private List<Book> books = new ArrayList<Book>();
@@ -22,19 +19,6 @@ public class Books implements Serializable {
     public Books() {
     }
 
-    /**
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * @param name the name to set
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
 
     /**
      * @return the books
