@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+                xmlns="http://www.uts.edu.au/31284/wsd-books"
+                version="2.0">
+    
     <xsl:output method="html"/>
     
     <xsl:template match="/"> <!-- root element -->
@@ -25,7 +28,7 @@
                         <xsl:apply-templates/>
                     </tbody>
                 </table>
-                <p>Total Books No# : <xsl:value-of select="count(bookshop/book)"/></p>
+                <p>Total Books No# : <xsl:value-of select="count(books/book)"/></p>
             </body>
         </html>
     </xsl:template>
