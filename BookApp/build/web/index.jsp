@@ -14,13 +14,17 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <% String filePath = application.getRealPath("WEB-INF/books.xml");%>
+        <jsp:useBean id="bookApp" class="book.wsd.BookApplication" scope="application">
+            <jsp:setProperty name="bookApp" property="filePath" value="<%=filePath%>"/>
+        </jsp:useBean>
         <div class="container">
-            
+
             <input type="button" value="Add Book" 
-                    onclick="window.location.href='add-book-form.jsp'; return false;"
-                    class="alert alert-primary" />
-            
-            
+                   onclick="window.location.href = 'add-book-form.jsp'; return false;"
+                   class="alert alert-primary" />
+
+
             <c:import url="WEB-INF/books.xml" 
                       var="inputDoc" />
 

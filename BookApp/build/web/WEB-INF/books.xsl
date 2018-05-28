@@ -33,7 +33,7 @@
         </html>
     </xsl:template>
     
-    <xsl:template match="book">
+    <xsl:template match="books/book">
         <xsl:variable name="href">bookDetail.jsp?title=<xsl:value-of select="title"/></xsl:variable>  
         <tr>
             <td>
