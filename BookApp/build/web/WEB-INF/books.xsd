@@ -1,28 +1,23 @@
 <?xml version="1.0"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 
-<xs:schema version="1.0">
-<!--           xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           targetNamespace="https://www.w3schools.com"
-           xmlns="https://www.w3schools.com"  
-           elementFormDefault="qualified">-->
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.uts.edu.au/31284/wsd-books"
+           xmlns="http://www.uts.edu.au/31284/wsd-books"  
+           elementFormDefault="qualified">
     
-    <xs:simpleType name="idType">
+<!--    <xs:simpleType name="idType">
         <xs:restriction base="xs:integer">
             <xs:pattern value="\d{6}"/>
         </xs:restriction>
-    </xs:simpleType>
+    </xs:simpleType>-->
     <xs:simpleType name="yearType">
         <xs:restriction base="xs:integer">
             <xs:pattern value="\d{1,4}"/>
         </xs:restriction>
     </xs:simpleType>
     
-    <xs:element name="bookshop">
+    <xs:element name="books">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="book" maxOccurs="unbounded" minOccurs="0">
@@ -46,7 +41,7 @@ and open the template in the editor.
                                 </xs:complexType>
                             </xs:element>
                         </xs:sequence>
-                        <xs:attribute type="idType" name="id" use="optional"/>
+                        <xs:attribute type="xs:int" name="id" use="optional"/>
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>

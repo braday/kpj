@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.*;
 public class Books implements Serializable {
 
     @XmlElement(name = "book")
-    private List<Book> books = new ArrayList<Book>();
+    private ArrayList<Book> books = new ArrayList<Book>();
 
     public Books() {
     }

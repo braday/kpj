@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet 
-    type="text/xsl"
-    version="2.0"
-    herf="books.xsl"?
-    href="bookDetail.xsl"?>
-<bookshop>
+<books xmlns="http://www.uts.edu.au/31284/wsd-books"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.uts.edu.au/31284/wsd-books books.xsd">
     <book id="1">
         <title>XML Developer's Guide</title>
         <author>Matthew Gambardella</author>
@@ -50,4 +47,4 @@
             <publisher>wiley</publisher>
         </publication>
     </book>        
-</bookshop>
+</books>
